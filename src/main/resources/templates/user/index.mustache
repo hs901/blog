@@ -1,0 +1,45 @@
+{{>layouts/header}}
+<div class="d-flex flex-wrap gap-3">
+    {{#userList}}
+        <div class="border rounded p-3 d-flex align-items-center" style="width: 500px;">
+            <a href="/user/{{id}}" class="d-flex align-items-center text-decoration-none text-reset">
+                <img src="/images/user-3296.png" class="rounded me-3" style="width: 80px; height: 80px;" />
+                <div class="ms-2 me-auto">
+                    <div class="fw-bold">{{name}}</div>
+                    ID: {{number}}<br>
+                    Email: {{email}}
+                </div>
+            </a>
+        </div>
+    {{/userList}}
+</div>
+<br>&nbsp;<a href="" class="btn btn-primary">Login</a>
+&nbsp;<a href="/user/new" class="btn btn-primary">Register</a>
+{{>layouts/footer}}
+
+
+
+
+
+<!--<table class="table">-->
+<!--    <thead class="table-dark">-->
+<!--    <tr>-->
+<!--        <th scope="col">ID</th>-->
+<!--        <th scope="col">Name</th>-->
+<!--        <th scope="col">Employee ID</th>-->
+<!--        <th scope="col">Email</th>-->
+<!--        <th scope="col">Profile</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    {{#userList}}-->
+<!--        <tr>-->
+<!--            <th>{{id}}</th>-->
+<!--            <td>{{name}}</td>-->
+<!--            <td>{{number}}</td>-->
+<!--            <td>{{email}}</td>-->
+<!--            <td><a href="/user/{{id}}" class="btn btn-info">View</a></td>-->
+<!--        </tr>-->
+<!--    {{/userList}}-->
+<!--    </tbody>-->
+<!--</table>-->

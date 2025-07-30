@@ -1,0 +1,24 @@
+{{>layouts/header}}
+<table class="table">
+    <thead class="table-dark">
+    <tr>
+        <th scope="col">Attendance</th>
+        <th scope="col">Name</th>
+        <th scope="col">Employee ID</th>
+        <th scope="col">Profile</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#attendance}}
+        <tr>
+            <th>{{id}}</th>
+            <td>{{employeeName}}</td>
+            <td>{{employeeID}}</td>
+        </tr>
+    {{/attendance}}
+    </tbody>
+</table>
+<a href="/attendance/{{attendance.id}}/edit" class="btn btn-primary">Edit</a>
+<a href="/attendance/{{attendance.id}}/delete" class="btn btn-danger">Delete</a>
+<a href="/attendance" class="btn btn-primary">Back</a>
+{{>layouts/footer}}

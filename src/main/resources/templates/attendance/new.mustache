@@ -1,0 +1,14 @@
+{{>layouts/header}}
+<form class="container" action="/attendance/create" method="post">
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" name="employeeName">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Employee ID</label>
+        <input type="text" class="form-control" name="employeeID">
+    </div>
+    <button type="submit" class="btn btn-primary">Confirm</button>
+    <a href="/attendance" class="btn btn-primary">Back</a>
+</form>
+{{>layouts/footer}}

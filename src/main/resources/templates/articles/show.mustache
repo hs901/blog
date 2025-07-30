@@ -1,0 +1,47 @@
+{{>layouts/header}}
+<br>
+<div class="container d-flex justify-content-center">
+    <div class="card border" style="width: 180rem;">
+{{#article}}
+        <div class="card-header">Board #{{id}}</div>
+        <div class="card-body">
+            <h5 class="card-title">{{title}}</h5>
+            <p class="card-text">{{content}}</p>
+        </div>
+{{/article}}
+    </div>
+</div>
+
+<br>&nbsp;
+<div class="btn-group">
+    <a href="/articles/{{article.id}}/edit" class="btn btn-primary" aria-current="page">Edit</a>
+    <a href="/articles/{{article.id}}/delete" class="btn btn-danger">Delete</a>
+    <a href="/articles" class="btn btn-primary">Index</a>
+</div>
+{{>layouts/footer}}
+
+
+
+
+
+<!--<table class="table">-->
+<!--    <thead class="table-dark">-->
+<!--    <tr>-->
+<!--        <th scope="col">ID</th>-->
+<!--        <th scope="col">Title</th>-->
+<!--        <th scope="col">Content</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    {{#article}}-->
+<!--        <tr>-->
+<!--            <th>{{id}}</th>-->
+<!--            <td>{{title}}</td>-->
+<!--            <td>{{content}}</td>-->
+<!--        </tr>-->
+<!--    {{/article}}-->
+<!--    </tbody>-->
+<!--</table>-->
+<!--<br>&nbsp;<a href="/articles/{{article.id}}/edit" class="btn btn-primary">Edit</a>-->
+<!--&nbsp;<a href="/articles/{{article.id}}/delete" class="btn btn-danger">Delete</a>-->
+<!--&nbsp;<a href="/articles" class="btn btn-primary">Back</a>-->

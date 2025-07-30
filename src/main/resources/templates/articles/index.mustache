@@ -1,0 +1,45 @@
+{{>layouts/header}}
+<div class="list-group">
+{{#articleList}}
+        <style>
+            .custom-hover:hover {
+              background-color: #0d6efd;
+              color: white;
+            }
+        </style>
+    <a href="/articles/{{id}}" class="list-group-item list-group-item-action custom-hover" aria-current="true">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{title}}</h5>
+            <small>3 days ago</small>
+        </div>
+        <p class="mb-1">{{content}}</p>
+        <small>And some small print.</small>
+    </a>
+</div>
+{{/articleList}}
+<br>&nbsp;<a href="/articles/new" class="btn btn-primary">New Article</a>
+{{>layouts/footer}}
+
+
+
+
+
+<!--<table class="table">-->
+<!--    <thead class="table-dark">-->
+<!--    <tr>-->
+<!--        <th scope="col">ID</th>-->
+<!--        <th scope="col">Title</th>-->
+<!--        <th scope="col">Content</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    {{#articleList}}-->
+<!--        <tr>-->
+<!--            <th>{{id}}</th>-->
+<!--            <td><a href="/articles/{{id}}">{{title}}</a></td>-->
+<!--            <td>{{content}}</td>-->
+<!--        </tr>-->
+<!--    {{/articleList}}-->
+<!--    </tbody>-->
+<!--</table>-->
+<!--<br>&nbsp;<a href="/articles/new" class="btn btn-primary">New Article</a>-->

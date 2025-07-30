@@ -1,0 +1,27 @@
+{{>layouts/header}}
+<table class="table">
+    <thead class="table-dark">
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Employee ID</th>
+        <th scope="col">Email</th>
+<!--        <th scope="col">PW</th>-->
+    </tr>
+    </thead>
+    <tbody>
+    {{#user}}
+        <tr>
+            <th>{{id}}</th>
+            <td>{{name}}</td>
+            <td>{{number}}</td>
+            <td>{{email}}</td>
+<!--            <td>{{password}}</td>-->
+        </tr>
+    {{/user}}
+    </tbody>
+</table>
+<a href="/user/{{user.id}}/edit" class="btn btn-primary">Edit</a>
+<a href="/user/{{user.id}}/delete" class="btn btn-danger">Delete</a>
+<a href="/user" class="btn btn-primary">Back</a>
+{{>layouts/footer}}

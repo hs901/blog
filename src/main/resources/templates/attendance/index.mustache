@@ -1,0 +1,54 @@
+{{>layouts/header}}
+<div class="list-group">
+    <table class="table">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Attendance</th>
+                <th scope="col">Name</th>
+                <th scope="col">Employee ID</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        {{#attendanceList}}
+            <tr>
+                <th>{{id}}</th>
+                <td>{{employeeName}}</td>
+                <td>{{employeeID}}</td>
+                <td>
+                    <div class="btn-group">
+                        <a href="/attendance/{{id}}" class="btn btn-info">Info</a>
+                        <a href="/attendance/{{id}}/delete" class="btn btn-danger">Cancel</a>
+                    </div>
+                </td>
+            </tr>
+        {{/attendanceList}}
+        </tbody>
+    </table>
+</div>
+&nbsp;<a href="/attendance/new" class="btn btn-primary">Check In</a>
+{{>layouts/footer}}
+
+
+
+
+
+<!--<table class="table">-->
+<!--    <thead class="table-dark">-->
+<!--    <tr>-->
+<!--        <th scope="col">Attendance</th>-->
+<!--        <th scope="col">Name</th>-->
+<!--        <th scope="col">Employee ID</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    {{#attendanceList}}-->
+<!--        <tr>-->
+<!--            <th>{{id}}</th>-->
+<!--            <td><a href="/attendance/{{id}}">{{employeeName}}</a></td>-->
+<!--            <td>{{employeeID}}</td>-->
+<!--        </tr>-->
+<!--    {{/attendanceList}}-->
+<!--    </tbody>-->
+<!--</table>-->
+<!--<br>&nbsp;<a href="/attendance/new" class="btn btn-primary">Check In</a>-->
