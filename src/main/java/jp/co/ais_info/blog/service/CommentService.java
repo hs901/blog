@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,15 +19,6 @@ public class CommentService {
     @Autowired
     private ArticleRepository articleRepository;
     public List<CommentDto> comments(Long articleId){
-//        //1. Inquire Replies
-//        List<Comment> comments = commentRepository.findByArticleId(articleId);
-//        //2. Convert Entities into DTOs
-//        List<CommentDto> dtos = new ArrayList<CommentDto>();
-//        for (int i=0; i<comments.size(); i++){
-//            Comment c = comments.get(i);
-//            CommentDto dto = CommentDto.createCommentDto(c);
-//            dtos.add(dto);
-//        }
         //3. Return results
         return commentRepository.findByArticleId(articleId)
                 .stream()
@@ -60,5 +50,15 @@ public class CommentService {
         Comment updated = commentRepository.save(target);
         //4. Convert DTO and return
         return CommentDto.createCommentDto(updated);
+    }
+    @Transactional
+    public CommentDto delete(Long id) {
+        //1. Inquire Article and handle exception
+        Comment target = commentRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Failed to delete replies" + "Target article void"));
+        //2. Delete replies
+        commentRepository.delete(target);
+        //3. Convert deleted replies to DTOs and return
+        return CommentDto.createCommentDto(target);
     }
 }

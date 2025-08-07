@@ -18,6 +18,6 @@ INSERT INTO comment(article_id, nickname, body) VALUES(6,'Park','Jogging');
 INSERT INTO comment(article_id, nickname, body) VALUES(6,'Kim','Youtube');
 INSERT INTO comment(article_id, nickname, body) VALUES(6,'Choi','Reading');
 
-INSERT INTO attendance(employee_name, employeeid) VALUES ('Mai Hayakawa', 'B7K2-4ZRM-P3Q9');
-INSERT INTO attendance(employee_name, employeeid) VALUES ('Tomohiro Yamauchi', 'X1A8-G7QD-MK0F');
-INSERT INTO attendance(employee_name, employeeid) VALUES ('Hayato Nishimura', 'N9VC-W2H5-8L3T');
+--INSERT INTO attendance(employee_name, attendance_time) VALUES ('Mai Hayakawa', '08:32');
+--INSERT INTO attendance(employee_name, attendance_time) VALUES ('Tomohiro Yamauchi', '08:45');
+--INSERT INTO attendance(employee_name, attendance_time) VALUES ('Hayato Nishimura', '08:58');

@@ -5,20 +5,31 @@
             <tr>
                 <th scope="col">Attendance</th>
                 <th scope="col">Name</th>
-                <th scope="col">Employee ID</th>
-                <th scope="col">Action</th>
+                <th scope="col">Time</th>
+                <th scope="col">Options</th>
             </tr>
         </thead>
         <tbody>
         {{#attendanceList}}
+            <style>
+                .custom-hover:hover {
+                  background-color: #DCDCDC;
+                }
+            </style>
             <tr>
                 <th>{{id}}</th>
                 <td>{{employeeName}}</td>
-                <td>{{employeeID}}</td>
+                <td>{{attendanceTime}}</td>
                 <td>
-                    <div class="btn-group">
-                        <a href="/attendance/{{id}}" class="btn btn-info">Info</a>
-                        <a href="/attendance/{{id}}/delete" class="btn btn-danger">Cancel</a>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="true">
+                            Actions
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item custom-hover" href="/attendance/{{id}}">Details</a></li>
+                            <li><a class="dropdown-item custom-hover" href="/attendance/{{id}}/edit">Edit</a></li>
+                            <li><a class="dropdown-item custom-hover" href="/attendance/{{id}}/delete">Undo</a></li>
+                        </ul>
                     </div>
                 </td>
             </tr>
@@ -46,7 +57,7 @@
 <!--        <tr>-->
 <!--            <th>{{id}}</th>-->
 <!--            <td><a href="/attendance/{{id}}">{{employeeName}}</a></td>-->
-<!--            <td>{{employeeID}}</td>-->
+<!--            <td>{{attendanceTime}}</td>-->
 <!--        </tr>-->
 <!--    {{/attendanceList}}-->
 <!--    </tbody>-->

@@ -1,18 +1,22 @@
 {{>layouts/header}}
-<div class="d-flex flex-wrap gap-3">
-    {{#userList}}
-        <div class="border rounded p-3 d-flex align-items-center" style="width: 500px;">
-            <a href="/user/{{id}}" class="d-flex align-items-center text-decoration-none text-reset">
-                <img src="/images/user-3296.png" class="rounded me-3" style="width: 80px; height: 80px;" />
-                <div class="ms-2 me-auto">
-                    <div class="fw-bold">{{name}}</div>
-                    ID: {{number}}<br>
-                    Email: {{email}}
+{{#userList}}
+    <div class="card m-2" style="max-width: 500px; object-fit: cover;">
+        <a href="/user/{{id}}" class="text-decoration-none text-dark d-block">
+            <div class="row g-0 align-items-center p-2">
+                <div class="col-md-4">
+                    <img src="/images/user-3296.png" class="rounded me-3" style="width: 80px; height: 80px;" />
                 </div>
-            </a>
-        </div>
-    {{/userList}}
-</div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <div class="fw-bold">{{name}}</div>
+                        ID: {{number}}<br>
+                        Email: {{email}}
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+{{/userList}}
 <br>&nbsp;<a href="" class="btn btn-primary">Login</a>
 &nbsp;<a href="/user/new" class="btn btn-primary">Register</a>
 {{>layouts/footer}}

@@ -1,47 +1,20 @@
 {{>layouts/header}}
-<br>
-<div class="container d-flex justify-content-center">
-    <div class="card border" style="width: 180rem;">
 {{#article}}
-        <div class="card-header">Board #{{id}}</div>
-        <div class="card-body">
-            <h5 class="card-title">{{title}}</h5>
-            <p class="card-text">{{content}}</p>
+    <a href="/articles" class="btn btn-outline-secondary btn-sm mt-2 ms-2">Article Index</a>
+    <div class="d-flex justify-content-between align-items-start mt-2 me-3 ms-3">
+        <h3 class="card-title mb-0">#{{id}} {{title}}</h3>
+        <div class="dropdown">
+            <button class="btn btn-link p-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Article options menu">
+                <img src="/images/dots-circle-horizontal.svg" alt="">
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="/articles/{{id}}/edit" class="dropdown-item">Edit</a></li>
+                <li><a href="/articles/{{id}}/delete" class="dropdown-item text-danger">Delete</a></li>
+            </ul>
         </div>
-{{/article}}
     </div>
-</div>
-
-<br>&nbsp;
-<div class="btn-group">
-    <a href="/articles/{{article.id}}/edit" class="btn btn-primary" aria-current="page">Edit</a>
-    <a href="/articles/{{article.id}}/delete" class="btn btn-danger">Delete</a>
-    <a href="/articles" class="btn btn-primary">Index</a>
-</div>
+    <p class="card-text m-3">{{content}}</p>
+    <hr>
+{{/article}}
+{{>comments/_comments}}
 {{>layouts/footer}}
-
-
-
-
-
-<!--<table class="table">-->
-<!--    <thead class="table-dark">-->
-<!--    <tr>-->
-<!--        <th scope="col">ID</th>-->
-<!--        <th scope="col">Title</th>-->
-<!--        <th scope="col">Content</th>-->
-<!--    </tr>-->
-<!--    </thead>-->
-<!--    <tbody>-->
-<!--    {{#article}}-->
-<!--        <tr>-->
-<!--            <th>{{id}}</th>-->
-<!--            <td>{{title}}</td>-->
-<!--            <td>{{content}}</td>-->
-<!--        </tr>-->
-<!--    {{/article}}-->
-<!--    </tbody>-->
-<!--</table>-->
-<!--<br>&nbsp;<a href="/articles/{{article.id}}/edit" class="btn btn-primary">Edit</a>-->
-<!--&nbsp;<a href="/articles/{{article.id}}/delete" class="btn btn-danger">Delete</a>-->
-<!--&nbsp;<a href="/articles" class="btn btn-primary">Back</a>-->

@@ -3,6 +3,7 @@ package jp.co.ais_info.blog.service;
 import jp.co.ais_info.blog.dto.ArticleForm;
 import jp.co.ais_info.blog.entity.Article;
 import jp.co.ais_info.blog.repository.ArticleRepository;
+import jp.co.ais_info.blog.repository.CommentRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,8 @@ import java.util.stream.Collectors;
 public class ArticleService {
     @Autowired
     private ArticleRepository articleRepository;
+    @Autowired
+    private CommentRepository commentRepository;
     public List<Article> index() {
         return articleRepository.findAll();
     }
@@ -46,6 +49,7 @@ public class ArticleService {
         Article updated = articleRepository.save(target);
         return updated;
     }
+    @Transactional
     public Article delete(Long id){
         //1. Search target
         Article target = articleRepository.findById(id).orElse(null);
@@ -53,6 +57,9 @@ public class ArticleService {
         if (target == null){
             return null;
         }
+        log.info("Deleting comments for article id = {}", id);
+        commentRepository.deleteByArticleId(id);
+        log.info("Deleting article id = {}", id);
         //3. Delete target
         articleRepository.delete(target);
         return target;

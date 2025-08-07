@@ -17,15 +17,15 @@ public class Attendance {
     private Long id;
     @Column //
     private String employeeName;
-    @Column //
-    private String employeeID;
+    @Column
+    private String attendanceTime;
 
     public void patch(Attendance attendance) {
         if (attendance.employeeName != null){
             this.employeeName = attendance.employeeName;
         }
-        if (attendance.employeeID != null){
-            this.employeeID = attendance.employeeID;
+        if (attendance.attendanceTime != null){
+            this.attendanceTime = attendance.attendanceTime;
         }
     }
 }

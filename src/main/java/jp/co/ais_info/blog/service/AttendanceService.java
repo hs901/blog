@@ -6,6 +6,7 @@ import jp.co.ais_info.blog.repository.AttendanceRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -46,6 +47,7 @@ public class AttendanceService {
         return updated;
     }
 
+    @Transactional
     public Attendance delete(Long id){
         //1. Search target
         Attendance target = attendanceRepository.findById(id).orElse(null);

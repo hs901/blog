@@ -38,4 +38,11 @@ public class CommentApiController {
         return ResponseEntity.status(HttpStatus.OK).body(updatedDto);
     }
     //4. Delete Replies
+    @DeleteMapping("/api/comments/{id}")
+    public ResponseEntity<CommentDto> delete(@PathVariable Long id){
+        // Let Service
+        CommentDto deletedDto = commentService.delete(id);
+        // Response to result
+        return ResponseEntity.status(HttpStatus.OK).body(deletedDto);
+    }
 }

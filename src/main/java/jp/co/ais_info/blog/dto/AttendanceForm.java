@@ -9,9 +9,9 @@ import lombok.ToString;
 public class AttendanceForm {
     private Long id;
     private String employeeName;
-    private String employeeID;
+    private String attendanceTime;
 
     public Attendance toEntity() {
-        return new Attendance(id, employeeName, employeeID);
+        return new Attendance(id, employeeName, attendanceTime);
     }
 }

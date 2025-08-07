@@ -2,7 +2,9 @@ package jp.co.ais_info.blog.repository;
 
 import jp.co.ais_info.blog.entity.Comment;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -12,4 +14,9 @@ public interface CommentRepository extends JpaRepository<Comment, Long> {
     List<Comment> findByArticleId(Long articleId);
     // Show all replies of specific user
     List<Comment> findByNickname(String nickname);
+    // Remove replies by ID
+    @Modifying
+    @Transactional
+    @Query(value = "DELETE FROM comment WHERE article_id = :articleId", nativeQuery = true)
+    void deleteByArticleId(Long articleId);
 }
